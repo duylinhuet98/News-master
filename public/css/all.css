@@ -1,0 +1,284 @@
+body {
+    font-size: 14px;
+}
+
+.row {
+    margin-left: 1px;
+    padding-right: unset;
+    margin-right: 1px;
+}
+
+.content-header {
+    text-align: center;
+    font-size: 30px;
+}
+
+.btn-default {
+    background-color: whitesmoke;
+    border-color: #6e6e6e;
+    margin-right: 5px;
+}
+
+.btn-default:hover {
+    background-color: rgba(41, 41, 41, 0.91);
+    color: whitesmoke;
+}
+
+.dropdown-toggle{
+    font-size: 14px;
+    margin-left: unset;
+    padding-left: unset;
+}
+
+.header .nav>li>a {
+
+}
+
+.text-error {
+    font-weight: 700;
+    width: 280px;
+    text-align: left;
+    margin-bottom: unset;
+    color: red !important;
+}
+
+.box-title {
+    font-weight: bold;
+    text-align: left;
+    font-size: 26px;
+    padding-left: 40px;
+}
+
+h1 {
+    font-family: unset;
+}
+
+h2 {
+    font-family: unset;
+}
+
+h3 {
+    font-family: unset;
+}
+
+.button {
+    border-color: white;
+}
+
+.box-info{
+    margin-top: 3%;
+    box-shadow: 1px 2px 9px 0px rgba(79, 79, 79, 0.75);
+}
+
+.box-footer {
+    text-align: center;
+}
+
+
+/*thanh account*/
+.navbar-custom-menu>.navbar-nav>li>.dropdown-menu {
+    width: 200px;
+    right: 0;
+    background: rgba(8, 31, 97, 0.65);
+    padding-left: 1px;
+}
+
+.btn.btn-flat{
+    width: 200px;
+    color: #eef5f5;
+    background-color: #1f2229;
+}
+
+.skin-blue .main-header .nav .nav-stacked>li>a:hover {
+    background: #cdd4ee;
+    color: black;
+}
+
+#menu-setting{
+    width: 200px;
+}
+
+#menu-setting:hover{
+    background: #34709f;
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle{
+    color: #eef5f5 ;
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+    background-color: #34709f;
+}
+.navbar-nav>li>a {
+    padding-left: 5px;
+    padding-right: unset;
+}
+/*thanh sidebar*/
+
+.sidebar-menu .admin-home {
+    margin-top: 15px;
+}
+.skin-blue .sidebar-menu>li>a:hover {
+    background: #cdd4ee;
+    color: black;
+}
+
+.skin-blue .sidebar-menu>li>a{
+    color: #eef5f5;
+}
+
+.skin-blue .main-sidebar{
+    background-color: #1f2229;
+}
+
+
+.message-success {
+    text-align: center !important;
+}
+
+.content-index .has-search .form-control-feedback {
+    right: initial;
+    left: 0;
+    color: #ccc;
+}
+.content-index .has-search .form-control {
+	width: 400px;
+    padding-right: 12px;
+    padding-left: 34px;
+    border-radius: 10px;
+}
+.formSubmit .label {
+    display: unset;
+    width: 50px;
+    border: 1px solid #f8f8f8;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.create-bt {
+    text-align: center;
+}
+
+.total{
+    margin: auto;
+    display: flex;
+}
+
+.content-wrapper {
+    background-color: white;
+}
+
+.modal-content {
+    border-radius: 5px;
+}
+
+.validate-text {
+    position: relative;
+}
+.alert.alert-success.alert-block {
+    text-align: center;
+    height: 40px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    background-color: rgba(2, 132, 16, 0.71);
+    margin-bottom: unset;
+}
+
+.alert.alert-success.alert-block:hover {
+    background-color: rgba(2, 123, 16, 0.89);
+}
+
+.alert.alert-error.alert-block {
+    background-color: rgba(206, 26, 17, 0.87);
+    height: 40px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    text-align: center;
+    margin-bottom: unset;
+}
+
+.alert.alert-error.alert-block:hover {
+    background-color: rgba(174, 24, 7, 0.94);
+}
+
+.alertForgotPassword.alert-error.alert-block {
+    margin-left: 515px;
+    margin-top: -100px;
+    width: 440px;
+}
+.create-image {
+    border: none;
+}
+.cancel-cr {
+    margin-right: 15px;
+    height: 35px;
+}
+.cancel-cr a {
+    color: #3c8dbc;
+}
+.create-bt {
+    text-align: right;
+    margin-top: -33px;
+}
+.create-bt .submit {
+    color: white;
+}
+
+.btn-flat {
+    text-align: left;
+}
+
+.btn-notify {
+    width: auto;
+}
+.navbar-nav>.user-menu>.dropdown-menu {
+    width: auto;
+}
+
+.box-header {
+    text-align: center;
+}
+
+.badge {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 3px 4px;
+    position: absolute;
+    right: 4px;
+    top: 7px;
+    color: black;
+    background-color: #fffd00;
+}
+
+textarea {
+    resize: none;
+}
+
+.fa-commenting {
+    font-size: 20px;
+    margin-left: 5px;
+    position: relative;
+    transition: 0.4s;
+}
+
+.aside-tranform:hover {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#show_fb{
+    position: absolute;
+    margin-top: 52px;
+    margin-left: 72%;
+    color: blue;
+    width: 110px;
+    font-weight: 600;
+}
+
+.dataTable td {
+    padding: 5px;
+}
+
+.header #message:hover {
+    background-color: #3b6a8e;
+}
