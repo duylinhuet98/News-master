@@ -31,15 +31,6 @@
                                         <button class="btn btn-primary" type="submit">Tạo loại tin</button>
                                     </div>
                                 </div>
-                                <div class="col-sm-4" style="text-align:center; margin-left: 5%">
-                                    @if(count($errors) > 0)
-                                        <div class="alert alert-danger">
-                                            @foreach($errors->all() as $err)
-                                                <strong>{{ $err }}</strong><br/>
-                                            @endforeach
-                                        </div>
-                                    @endif
-                                </div>
                             </form>
                         </div>
                     </div>

@@ -27,15 +27,6 @@ class PostTypeController extends Controller
     }
 
     public function postTypeStore(Request $request){
-        $this->validate($request,
-            [
-                'name' => 'required|unique:post_type| min:3',
-            ],
-            [
-                'name.required' => 'Vui lòng điền tên loại tin',
-                'name.unique' => 'Tên Loại Tin đã tồn tại, vui lòng nhập tên khác!',
-                'name.min' => 'Tên Loại Tin gồm ít nhất 3 ký tự!',
-            ]);
         PostType::create([
             'name' => $request->post_type_name,
         ]);

@@ -20,6 +20,7 @@ class CreateSlideTable extends Migration
             $table->string('content')->nullable();
             $table->string('link')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

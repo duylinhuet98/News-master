@@ -10,6 +10,9 @@ class Users extends Model
     use SoftDeletes;
     protected $dates = ['deleted_at'];
     protected $table='users';
+    protected $primaryKey ='id';
+    protected $fillable = ['id','name','email','level','status',
+        'password','created_at', 'update_at', 'deleted_at'];
 
     public function flagSeen()
     {

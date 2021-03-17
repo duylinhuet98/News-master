@@ -21,6 +21,7 @@ class CreateCommentTable extends Migration
             $table->foreign('post_id')->references('id')->on('posts');
             $table->string('content')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

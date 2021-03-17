@@ -17,6 +17,7 @@ class CreatePostTypeTable extends Migration
             $table->increments('id');
             $table->string('name', 255)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
