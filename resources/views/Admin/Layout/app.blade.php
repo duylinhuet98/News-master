@@ -55,7 +55,6 @@
 <script src="{{ URL::asset('js/jquery.validate.min.js') }}"></script>
 <script src="{{ URL::asset('js/additional-methods.min.js') }}"></script>
 <script src="{{ URL::asset('js/admin.js') }}"></script>
-<script src="{{ URL::asset('js/login.js') }}"></script>
 <script src="{{ URL::asset('js/respond.min.js') }}"></script>
 <script src="{{ URL::asset('js/html5shiv.min.js') }}"></script>
 <script src="{{ URL::asset('js/bootstrap-multiselect.min.js') }}"></script>

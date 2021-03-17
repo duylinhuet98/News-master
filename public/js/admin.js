@@ -28,7 +28,7 @@ setTimeout(function(){
 }, 7000 ); // 7 secs
 
 setTimeout(function(){
-    (".alert-danger").remove();
+    (".alert-error").remove();
 }, 7000 ); // 7 secs
 
 setTimeout(function(){

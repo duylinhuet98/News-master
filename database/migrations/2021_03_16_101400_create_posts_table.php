@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->text('title')->nullable();
             $table->text('content')->nullable();
             $table->string('image',255)->nullable();
+            $table->dateTime('day_update')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
