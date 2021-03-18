@@ -21,15 +21,29 @@
                 <form class="form-horizontal">
                     <div class="box-body">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Tiêu đề:</label>
-                            <div class="col-sm-10">
-                                <textarea id="post_title" disabled>{{ @$data->title }}</textarea>
+                            <label class="col-lg-2 control-label">Thể loại:</label>
+                            <div class="col-lg-10">
+                                <p id="post_title" disabled>{{ @$data['post_type'] }}</p>
+                            </div>
+                        </div>
+                        <img width="100px" src="http://localhost/news/public/upload/post/{{ @$data['post']->image }}">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Tiêu đề:</label>
+                            <div class="col-lg-10">
+                                <textarea id="post_title" disabled>{{ @$data['post']->title }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Tiêu đề không dấu:</label>
+                            <div class="col-lg-10">
+                                <textarea id="post_title" disabled>{{ @$data['post']->title_unsigned }}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Nội dung:</label>
-                            <div class="col-sm-10">
-                                <textarea id="post_content" disabled>{{ @$data->content }}</textarea>
+                            <label class="col-lg-2 control-label">Nội dung:</label>
+                            <div class="col-lg-10">
+                                <textarea id="post_content" disabled>{{ @$data['post']->content }}</textarea>
                             </div>
                         </div>
 
@@ -38,7 +52,7 @@
                                 <input type="button" class="btn btn-default" value="Quay lại">
                             </a>
 
-                            <a class="edit-button" href="{{ route('admin.news.postEdit',[@$data->id]) }}">
+                            <a class="edit-button" href="{{ route('admin.news.postEdit',[@@$data['post']->id]) }}">
                                 <input type="button" class="btn btn-primary" value="Sửa">
                             </a>
                         </div>

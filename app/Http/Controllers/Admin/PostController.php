@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Admin\PostRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use App\Models\AppModel;
 use App\Models\Post;
+use App\Models\PostType;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,23 +43,42 @@ class PostController extends Controller
 
     public function postCreate()
     {
+        $data= PostType::select('id','name')->orderBy('created_at','asc')->get();
         return view($this->dirView . 'post_create', [
-
+            'data' => $data,
         ]);
 
     }
 
     public function postStore(Request $request)
     {
+        $post = new Post;
+            $post->title = $request->post_title;
+            $post->title_unsigned = $request->post_title_unsigned;
+            $post->content = $request->post_content;
+            $post->post_type_id = $request->post_type_list;
 
-        Post::create([
-            'title' => $request->post_title,
-            'content' => $request->post_content,
-            'image' => 'jd.jpg',
-            'status' => 0,
-            'created_at' => Carbon::now('Asia/Ho_Chi_Minh'),
-            'day_update' => Carbon::now('Asia/Ho_Chi_Minh'),
-        ]);
+            if($request->hasFile('image')) // Kiểm tra upload hình hay không
+            {
+                $img_file = $request->file('image');
+                $img_file_extension = $img_file->getClientOriginalExtension(); // Lấy đuôi của file hình ảnh
+
+                if($img_file_extension != 'png' && $img_file_extension != 'jpg' && $img_file_extension != 'jfif')
+                {
+                    return redirect()->route('admin.news.postCreate')->with('error','Định dạng hình ảnh không hợp lệ (chỉ hỗ trợ các định dạng: png, jpg, jpeg)!');
+                }
+
+                $img_file_name = $img_file->getClientOriginalName(); // Lấy tên của file hình ảnh
+
+                $random_file_name = Str::random(4).'_'.$img_file_name; // Random tên file để tránh trường hợp trùng với tên hình ảnh khác trong CSDL
+
+                $img_file->move('upload/post',$random_file_name); // file hình được upload sẽ chuyển vào thư mục có đường dẫn như trên
+                $post->image = $random_file_name;
+            }
+            else {
+                $post->image = '';
+            }
+            $post->save();
 
         return redirect()->route('admin.news.post')->with('success', 'Tạo tin tức mới thành công!!!');
     }
@@ -65,13 +86,10 @@ class PostController extends Controller
     public function postShow($id)
     {
 
-        $data = Post::where('id', $id)->first();
-        $data->status = 1;
-        $data->update();
+        $data['post'] = Post::where('id', $id)->first();
+        $data['post_type'] = PostType::where('id',$data['post']->post_type_id)->value('name');
         return view($this->dirView . 'post_show', [
-            'data' => $data,
-
-
+            'data'  => $data,
         ]);
     }
 
@@ -105,6 +123,7 @@ class PostController extends Controller
     public function postDestroy($id)
     {
         $data = Post::where('id', $id)->first();
+
         $data->delete();
 
         return redirect()->route('admin.news.post')->with('success', 'Xóa thông báo thành công!!!');

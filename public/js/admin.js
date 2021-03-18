@@ -24,13 +24,13 @@
 
 // set time out message success/error
 setTimeout(function(){
-    (".alert-success").remove();
+    $(".alert-success").remove();
 }, 7000 ); // 7 secs
 
 setTimeout(function(){
-    (".alert-error").remove();
+    $(".alert-error").remove();
 }, 7000 ); // 7 secs
 
 setTimeout(function(){
-    (".alert-err").remove();
+    $(".alert-danger").remove();
 }, 7000 ); // 7 secs

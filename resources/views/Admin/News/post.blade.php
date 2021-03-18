@@ -8,12 +8,12 @@
         <div class="box row">
             <div class="box-header">
                 <div class="form-group">
-                    <div class="col-sm-3" style="margin-top: 4px">
+                    <div class="col-lg-3" style="margin-top: 4px">
                         <a href="{{ route('admin.news.postCreate') }}">
                             <button class="btn btn-primary">Tạo tin mới</button>
                         </a>
                     </div>
-                    <form class="col-sm-4" action="" method="GET">
+                    <form class="col-lg-4" action="" method="GET">
                         <div class="search">
                             <div class="form-group has-feedback">
                                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
@@ -24,7 +24,6 @@
                     </form>
                 </div>
             </div>
-            @method('DELETE')
             <div class="box-body">
                 @if($message = Session::get('success'))
                     <div class="alert alert-success alert-block">

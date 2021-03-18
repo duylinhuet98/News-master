@@ -8,8 +8,8 @@ class Post extends AppModel
 {
     protected $table = 'posts';
     protected $primaryKey ='id';
-    protected $fillable = ['id','post_type_id','title','content','image',
-        'day_update','created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['id','post_type_id','title','title_unsigned','content','image',
+        'day_update','created_at', 'update_at', ];
 
     public function postType()
     {
@@ -23,6 +23,6 @@ class Post extends AppModel
 
     public function flagSeen()
     {
-        return $this->hasMany('App\Models\FlagSeen','post_id','id');
+        return $this->hasMany('App\Models\Category','post_id','id');
     }
 }

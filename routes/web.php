@@ -14,23 +14,39 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Admin.post');
 });
-Route::get('admin/post', 'Admin\PostController@post')->name('admin.news.post');
-Route::get('admin/post/fetch_data', 'Admin\PostController@fetch_data')->name('admin.news.postFetchData');;
-Route::get('admin/post/post-create', 'Admin\PostController@postCreate')->name('admin.news.postCreate');
-Route::post('admin/post/post-store', 'Admin\PostController@postStore')->name('admin.news.postStore');
-Route::get('admin/post/post-show/{id}', 'Admin\PostController@postShow')->name('admin.news.postShow');
-Route::get('admin/post/post-edit/{id}', 'Admin\PostController@postEdit')->name('admin.news.postEdit');
-Route::post('admin/post/post-update/{id}', 'Admin\PostController@postUpdate')->name('admin.news.postUpdate');
-Route::get('admin/post/post-destroy/{id}', 'Admin\PostController@postDestroy')->name('admin.news.postDestroy');
+Route::group(['prefix' => 'admin/post'],function() {
+    Route::get('index', 'Admin\PostController@post')->name('admin.news.post');
+    Route::get('fetch_data', 'Admin\PostController@fetch_data')->name('admin.news.postFetchData');;
+    Route::get('post-create', 'Admin\PostController@postCreate')->name('admin.news.postCreate');
+    Route::post('post-store', 'Admin\PostController@postStore')->name('admin.news.postStore');
+    Route::get('post-show/{id}', 'Admin\PostController@postShow')->name('admin.news.postShow');
+    Route::get('post-edit/{id}', 'Admin\PostController@postEdit')->name('admin.news.postEdit');
+    Route::post('post-update/{id}', 'Admin\PostController@postUpdate')->name('admin.news.postUpdate');
+    Route::get('post-destroy/{id}', 'Admin\PostController@postDestroy')->name('admin.news.postDestroy');
+});
+
+Route::group(['prefix' => 'admin/category'],function() {
+    Route::get('index', 'Admin\CategoryController@category')->name('admin.category');
+    Route::post('category-store', 'Admin\CategoryController@categoryStore')->name('admin.category.categoryStore');
+    Route::get('category-edit/{id}', 'Admin\CategoryController@categoryEdit')->name('admin.category.categoryEdit');
+    Route::get('category-update/{id}', 'Admin\CategoryController@categoryUpdate')->name('admin.category.categoryUpdate');
+    Route::get('category-destroy/{id}', 'Admin\CategoryController@categoryDestroy')->name('admin.category.categoryDestroy');
+});
+
+Route::group(['prefix' => 'admin/post-type'],function() {
+    Route::get('index', 'Admin\PostTypeController@postType')->name('admin.postType');
+    Route::post('post-type-store', 'Admin\PostTypeController@postTypeStore')->name('admin.postType.postTypeStore');
+    Route::get('post-type-edit/{id}', 'Admin\PostTypeController@postTypeEdit')->name('admin.postType.postTypeEdit');
+    Route::get('post-type-update/{id}', 'Admin\PostTypeController@postTypeUpdate')->name('admin.postType.postTypeUpdate');
+    Route::get('post-type-destroy/{id}', 'Admin\PostTypeController@postTypeDestroy')->name('admin.postType.postTypeDestroy');
+});
 
 Route::get('admin/user-list', 'Admin\UserListController@userList')->name('admin.userList');
 Route::get('admin/user-destroy/{id}', 'Admin\UserListController@userDestroy')->name('admin.userDestroy');
 
-Route::get('admin/post-type', 'Admin\PostTypeController@postType')->name('admin.postType');
-Route::post('admin/post-type/post-type-store', 'Admin\PostTypeController@postTypeStore')->name('admin.postType.postTypeStore');
-Route::get('admin/post-type/post-type-edit', 'Admin\PostTypeController@postTypeEdit')->name('admin.postType.postTypeEdit');
-Route::get('admin/post-type/post-type-update', 'Admin\PostTypeController@postTypeUpdate')->name('admin.postType.postTypeUpdate');
-Route::get('admin/post-type/post-type-destroy', 'Admin\PostTypeController@postTypeDestroy')->name('admin.postTypeDestroy');
+Route::get('page/home', 'Page\HomeController@home')->name('page.home');
+Route::get('page/index', 'Page\HomeController@index')->name('page.index');
 
+Route::get('ajax/get-category/{category_id}','HomeController@getCategory')->name('page.getCategory');

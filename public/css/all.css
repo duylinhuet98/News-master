@@ -254,24 +254,9 @@ textarea {
     resize: none;
 }
 
-.fa-commenting {
-    font-size: 20px;
-    margin-left: 5px;
-    position: relative;
-    transition: 0.4s;
-}
 
 .aside-tranform:hover {
     font-size: 16px;
-    font-weight: 600;
-}
-
-#show_fb{
-    position: absolute;
-    margin-top: 52px;
-    margin-left: 72%;
-    color: blue;
-    width: 110px;
     font-weight: 600;
 }
 
@@ -279,6 +264,3 @@ textarea {
     padding: 5px;
 }
 
-.header #message:hover {
-    background-color: #3b6a8e;
-}

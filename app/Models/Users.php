@@ -16,7 +16,7 @@ class Users extends Model
 
     public function flagSeen()
     {
-        return $this->hasMany('App\Models\FlagSeen','user_id','id');
+        return $this->hasMany('App\Models\Category','user_id','id');
     }
 
     public function Comment()

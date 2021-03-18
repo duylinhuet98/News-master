@@ -27,8 +27,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/post.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-datepicker.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-select.min.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/bootstrapValidator.min.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-multiselect.css') }}">
+
 
     @yield('extra_css')
 </head>
@@ -49,15 +48,16 @@
 <script src="{{ URL::asset('js/bootstrap-datepicker.min.js') }}"></script>
 <script src="{{ URL::asset('js/jquery.datetimepicker.full.js') }}"></script>
 <script src="{{ URL::asset('js/bootstrap-select.min.js') }}"></script>
-<script src="{{ URL::asset('js/bootstrapValidator.min.js') }}"></script>
 <script src="{{ URL::asset('js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ URL::asset('js/dataTables.bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('js/jquery.validate.min.js') }}"></script>
-<script src="{{ URL::asset('js/additional-methods.min.js') }}"></script>
 <script src="{{ URL::asset('js/admin.js') }}"></script>
 <script src="{{ URL::asset('js/respond.min.js') }}"></script>
 <script src="{{ URL::asset('js/html5shiv.min.js') }}"></script>
 <script src="{{ URL::asset('js/bootstrap-multiselect.min.js') }}"></script>
+<script src="{{ URL::asset('ckeditor/ckeditor.js') }}"></script>
+
+
 
 
 

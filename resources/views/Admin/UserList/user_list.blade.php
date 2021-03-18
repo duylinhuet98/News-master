@@ -24,7 +24,6 @@
                             <th style="width:150px; text-align: center;">Tên</th>
                             <th style="width:140px; text-align: center;">Email</th>
                             <th style="width:95px; text-align: center;">Ngày tạo</th>
-                            <th style="width:95px; text-align: center;">tổng số bình luận</th>
                             <th style="width:95px; text-align: center;">trạng thái</th>
                             <th style="width:60px; text-align: center;"></th>
                         </tr>
@@ -35,12 +34,6 @@
                                 <td>{{ @$loop->index + 1 }}</td>
                                 <td>{{ @$user->name }}</td>
                                 <td>{{ @$user->email }}</td>
-                                <td>{{ date('d-m-Y', strtotime(@$user->created_at)) }}</td>
-                                @foreach($count_comment as $count)
-                                    @if( @$count->id == @$user->id)
-                                        <td>{{ @$count->numberComment}}</td>
-                                    @endif
-                                @endforeach
                                 <td></td>
                                 <td>
                                         <a href="" data-toggle="modal" data-target="#user_management_{{ @$user->id }}">

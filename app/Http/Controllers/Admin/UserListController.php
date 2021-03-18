@@ -15,14 +15,9 @@ class UserListController extends Controller
     protected $dirView = 'Admin.UserList.';
 
     public function userList(){
-        $data = Users::where('level', AppModel::ROLE_USER)->get();
-        $count_comment = DB::table('users')->leftJoin('comment', 'users.id', '=', 'comment.user_id')
-            ->select('users.id', DB::raw('COUNT(comment.content) as numberComment'))
-            ->groupBy('users.id')->get();
-
+        $data = Users::all();
         return view($this->dirView . 'user_list', [
             'data' => $data,
-            'count_comment' => $count_comment,
         ]);
     }
 
