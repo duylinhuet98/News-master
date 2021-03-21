@@ -43,10 +43,18 @@ Route::group(['prefix' => 'admin/post-type'],function() {
     Route::get('post-type-destroy/{id}', 'Admin\PostTypeController@postTypeDestroy')->name('admin.postType.postTypeDestroy');
 });
 
-Route::get('admin/user-list', 'Admin\UserListController@userList')->name('admin.userList');
-Route::get('admin/user-destroy/{id}', 'Admin\UserListController@userDestroy')->name('admin.userDestroy');
 
-Route::get('page/home', 'Page\HomeController@home')->name('page.home');
-Route::get('page/index', 'Page\HomeController@index')->name('page.index');
+Route::group(['prefix' => 'page/home'],function() {
+    Route::get('create', 'Page\HomeController@create')->name('page.home.create');
+    Route::post('login', 'Page\HomeController@login')->name('page.home.login');
+    Route::get('logout', 'Page\HomeController@logout')->name('page.home.logout');
+    Route::get('index', 'Page\HomeController@index')->name('page.home.index');
+    Route::get('body_data', 'Page\HomeController@bodyData')->name('page.home.bodyData');
+    Route::get('post-list/{unsigned_name}/body_data',
+        'Page\HomeController@postData')->name('page.home.postData');
+    Route::get('post-list/{unsigned_name}', 'Page\HomeController@postList')->name('page.home.postList');
+    Route::get('post-view/{unsigned_title}', 'Page\HomeController@postView')->name('page.home.postView');
+});
 
-Route::get('ajax/get-category/{category_id}','HomeController@getCategory')->name('page.getCategory');
+Route::get('page/block/app', 'Page\BlockController@app')->name('page.block.app');
+Route::get('page/block/child/{id}', 'Page\BlockController@postChild')->name('page.block.child');

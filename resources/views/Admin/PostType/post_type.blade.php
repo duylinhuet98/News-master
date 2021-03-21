@@ -15,7 +15,7 @@
 
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <form id="create-post" class="form-horizontal"
+                            <form id="create-post-type" class="form-horizontal"
                                   action="{{ route('admin.postType.postTypeStore') }}" method="post">
                                 {{ csrf_field() }}
                                 <div class="form-group">

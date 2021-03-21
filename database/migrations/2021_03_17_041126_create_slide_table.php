@@ -17,8 +17,8 @@ class CreateSlideTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('image');
-            $table->string('content');
-            $table->string('link');
+            $table->string('content')->nullable();
+            $table->string('link')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -18,8 +18,9 @@
                                     <label class="col-lg-2 control-label">* Chọn loại tin tức:</label>
                                     <div class="col-lg-1">
                                         <select name="post_type_list" style="width: 150px;height: 30px">
-                                            @foreach($data as $value)
-                                                <option value={{@$value->id}} selected> {{@$value->name}}</option>
+                                            <option value={{@$data->post_type_id}} selected> {{@$data->name}}</option>
+                                            @foreach($data2 as $value)
+                                                <option value={{@$value->id}} > {{@$value->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -28,7 +29,7 @@
                                     <label class="col-lg-2 control-label">* Tiêu đề:</label>
                                     <div class="col-lg-9">
                                     <textarea class="form-control" name="post_title" id="title_post"
-                                              placeholder=" Nhập tiêu đề tin tức"></textarea>
+                                              placeholder=" Nhập tiêu đề tin tức">{{@$data->title}}</textarea>
                                         @if ($errors->has('post_title'))
                                             <span class="text-error alert-err">{{ $errors->first('post_title') }}</span>
                                         @endif
@@ -39,7 +40,7 @@
                                     <label class="col-lg-2 control-label">* Tiêu đề không dấu:</label>
                                     <div class="col-lg-9">
                                     <textarea class="form-control" name="post_title_unsigned" id="title_post"
-                                              placeholder=" Nhập tiêu đề tin không dấu"></textarea>
+                                              placeholder=" Nhập tiêu đề tin không dấu">{{@$data->title_unsigned}}</textarea>
                                         @if ($errors->has('post_title_unsigned'))
                                             <span class="text-error alert-err">{{ $errors->first('post_title_unsigned') }}</span>
                                         @endif
@@ -50,7 +51,7 @@
                                     <label class="col-lg-2 control-label">* Nội dung:</label>
                                     <div class="col-lg-9">
                                     <textarea class="form-control ckeditor" id="content_post" name="post_content"
-                                              placeholder=" Nhập nội dung tin tức"></textarea>
+                                              placeholder=" Nhập nội dung tin tức">{{@$data->content}}</textarea>
                                         @if ($errors->has('post_content'))
                                             <span class="text-error alert-err">{{ $errors->first('post_content') }}</span>
                                         @endif
@@ -58,7 +59,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-lg-2 control-label">Thêm Hình Ảnh:</label>
+                                    <label class="col-lg-2 control-label">hình ảnh:</label>
+                                    <div class="col-lg-10">
+                                        <img  style="margin-left: 20% " width="auto"  height="auto" src="http://localhost/newsTest/public/upload/post/{{ @$data->image }}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Đổi Hình Ảnh:</label>
                                     <div class="col-lg-3">
                                         <input id="img_fb" type="file" name="image" accept=".jpg,.png,.gif,.jpeg,.jfif">
                                     </div>
@@ -90,6 +97,4 @@
     </script>
 
 @endsection
-
-
 

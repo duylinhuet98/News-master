@@ -5,28 +5,20 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\Admin\PostRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
-use App\Models\AppModel;
 use App\Models\Post;
 use App\Models\PostType;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
     protected $dirView = 'Admin.News.';
 
-    public function post(Request $request)
+    public function post()
     {
         $data = Post::orderBy('created_at', 'desc')->paginate(3);
-        $search = $request->keySearch;
-        if (!empty($search)) {
-            $data = Post::Where('title', 'like', '%' . $search . '%')
-                ->orderBy('created_at', 'desc')->paginate(3);
-        }
         return view($this->dirView . 'post', [
             'data' => $data,
-            'search' => $search,
         ]);
 
     }
@@ -54,25 +46,21 @@ class PostController extends Controller
     {
         $post = new Post;
             $post->title = $request->post_title;
-            $post->title_unsigned = $request->post_title_unsigned;
+            $post->title_unsigned = $request->post_title;
             $post->content = $request->post_content;
             $post->post_type_id = $request->post_type_list;
 
-            if($request->hasFile('image')) // Kiểm tra upload hình hay không
+            if($request->hasFile('image'))
             {
                 $img_file = $request->file('image');
-                $img_file_extension = $img_file->getClientOriginalExtension(); // Lấy đuôi của file hình ảnh
-
+                $img_file_extension = $img_file->getClientOriginalExtension(); // Lấy đuôi của file  ảnh
                 if($img_file_extension != 'png' && $img_file_extension != 'jpg' && $img_file_extension != 'jfif')
                 {
                     return redirect()->route('admin.news.postCreate')->with('error','Định dạng hình ảnh không hợp lệ (chỉ hỗ trợ các định dạng: png, jpg, jpeg)!');
                 }
-
-                $img_file_name = $img_file->getClientOriginalName(); // Lấy tên của file hình ảnh
-
-                $random_file_name = Str::random(4).'_'.$img_file_name; // Random tên file để tránh trường hợp trùng với tên hình ảnh khác trong CSDL
-
-                $img_file->move('upload/post',$random_file_name); // file hình được upload sẽ chuyển vào thư mục có đường dẫn như trên
+                $img_file_name = $img_file->getClientOriginalName();
+                $random_file_name = Str::random(4).'_'.$img_file_name;
+                $img_file->move('upload/post',$random_file_name);
                 $post->image = $random_file_name;
             }
             else {
@@ -95,11 +83,11 @@ class PostController extends Controller
 
     public function postEdit($id)
     {
-        $data = Post::where('id', $id)->first();
-
-
+        $data = DB::table('posts')->leftJoin('post_type','posts.post_type_id','=','post_type.id')->where('posts.id', $id)->first();
+        $data2= PostType::select('id','name')->orderBy('created_at','asc')->get();
         return view($this->dirView . 'post_edit', [
             'data' => $data,
+            'data2' => $data2,
         ]);
     }
 

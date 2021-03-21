@@ -17,7 +17,7 @@
                 <li class="dropdown user user-menu" id="menu-setting" style="width: 210px">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="width: 210px;text-align: center" >
                         <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-{{--                        <span >{{ Auth::user()->full_name }}</span>--}}
+                        <span >{{ Auth::user()->name }}</span>
                     </a>
                     <ul class="dropdown-menu" style="width: 210px">
                         <div class="nav nav-stacked">
@@ -35,7 +35,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="" class="btn btn-default btn-flat " style="width: 210px">
+                                <a href="{{ route('page.home.logout') }}" class="btn btn-default btn-flat " style="width: 210px">
                                     <i class="fa fa-sign-out" aria-hidden="true"></i>
                                     Đăng xuất
                                 </a>

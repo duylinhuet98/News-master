@@ -4,12 +4,6 @@
         <ul class="sidebar-menu" data-widget="tree">
 
             <li class="aside-tranform">
-                <a href="{{ route('admin.userList') }}">
-                    <i class="fa fa-users">
-                    </i> <span>Danh sách tài khoản</span>
-                </a>
-            </li>
-            <li class="aside-tranform">
                 <a href="{{ route('admin.category') }}">
                     <i class="fa fa-server">
                     </i> <span>Danh sách danh mục</span>

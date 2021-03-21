@@ -38,7 +38,27 @@
 
 <div>
 @include('Page.Block.header')
-@include('Page.Block.menu')
+<div class="col-md-3 ">
+    <ul class="list-group" id="menu">
+        <li href="#" class="list-group-item menu1 active">
+            Danh Sách Thể Loại
+        </li>
+{{--        @foreach($data as $cate)--}}
+
+{{--                <li class="list-group-item menu1 cate-list">--}}
+{{--                    {{ $cate->name }}--}}
+{{--                </li>--}}
+{{--                <ul>--}}
+{{--                    @foreach($cate->LoaiTin as $subcate)--}}
+{{--                        <li class="list-group-item">--}}
+{{--                            <a href="loai-tin/{{ $subcate->TenKhongDau }}">{{ $subcate->Ten }}</a>--}}
+{{--                        </li>--}}
+{{--                    @endforeach--}}
+{{--                </ul>--}}
+
+{{--        @endforeach--}}
+    </ul>
+</div>
 <div style="height: 850px">
 @yield('content')
 </div>

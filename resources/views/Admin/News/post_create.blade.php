@@ -38,7 +38,7 @@
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">* Tiêu đề không dấu:</label>
                                 <div class="col-lg-9">
-                                    <textarea class="form-control" name="post_title_unsigned" id="title_post"
+                                    <textarea class="form-control" name="post_title_unsigned" id="title_post_unsigned"
                                               placeholder=" Nhập tiêu đề tin không dấu"></textarea>
                                     @if ($errors->has('post_title_unsigned'))
                                         <span class="text-error alert-err">{{ $errors->first('post_title_unsigned') }}</span>
@@ -78,6 +78,8 @@
             </div>
         </section>
     </div>
+    <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
+    <script src="{{ URL::asset('js/jquery.validate.min.js') }}"></script>
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {

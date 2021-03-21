@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <title> M-M </title>
+    <title> News-M </title>
     <!--
     CSS
     ============================================= -->
@@ -56,8 +56,6 @@
 <script src="{{ URL::asset('js/html5shiv.min.js') }}"></script>
 <script src="{{ URL::asset('js/bootstrap-multiselect.min.js') }}"></script>
 <script src="{{ URL::asset('ckeditor/ckeditor.js') }}"></script>
-
-
 
 
 

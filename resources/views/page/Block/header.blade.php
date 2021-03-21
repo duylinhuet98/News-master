@@ -14,47 +14,32 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">Giới thiệu</a>
+                    <a href="{{ route('page.home.index') }}">TRANG WEB TIN TỨC</a>
                 </li>
             </ul>
 
-            <form method="GET" action="tim-kiem" class="navbar-form navbar-left" role="search" >
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <input type="text" name="keyword" class="form-control" placeholder="Bạn cần tìm gì?">
-                </div>
-                <button type="submit" class="btn btn-default">Tìm Kiếm</button>
-            </form>
-{{--            @if(Auth::user())--}}
+{{--            <form class="col-sm-4" action="" method="GET">--}}
+{{--                <div class="search">--}}
+{{--                    <div class="form-group has-feedback">--}}
+{{--                        <span class="glyphicon glyphicon-search form-control-feedback"></span>--}}
+{{--                        <input name="keySearch" type="text" class="form-control" value="{{@$search}}"--}}
+{{--                               placeholder="Tìm kiếm tin tức" aria-controls="table-question">--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </form>--}}
 
-                    <span class="usr-name"></span>
+
                     <i class="fa fa-caret-down"></i>
                 </a>
-                <ul class="nav navbar-nav pull-right">
-                    <li class="nav-item dropdown">
-                        <a style="cursor: pointer;" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-{{--                            <i class="fa fa-user fa-fw" style="margin-right: 0.5em;"></i>{{ Auth::user()->name }}<i style="margin-left: 0.5em;" class="fa fa-caret-down"></i>--}}
-                        </a>
-                        <div style="left: -5px; padding: 0.5em 1em; text-align: center;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="quan-ly-thong-tin">Thiết Lập Tài Khoản</a>
-                            <div class="divider"></div>
-                            <a class="dropdown-item" href="dang-xuat">Đăng Xuất</a>
-                        </div>
-                    </li>
-                </ul>
 
-{{--            @else--}}
                 <ul class="nav navbar-nav pull-right">
-{{--                    @if(!Request::is('dang-nhap'))--}}
+
                         <li>
                             <a style="cursor: pointer; margin-right: 20px" class="login-sec" data-toggle="modal" data-target="#myModal">Đăng Nhập</a>
                         </li>
-{{--                    @endif--}}
                 </ul>
-{{--            @endif--}}
+
         </div>
-
-
 
         <!-- /.navbar-collapse -->
     </div>

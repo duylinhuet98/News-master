@@ -16,7 +16,7 @@
 
                         <div class="form-group">
                             <div class="col-lg-8" style="margin-left: 15%">
-                                <form id="create-post" class="form-horizontal"
+                                <form id="create-category" class="form-horizontal"
                                       action="{{ route('admin.category.categoryStore') }}" method="post">
                                     {{ csrf_field() }}
                                     <div class="form-group">
